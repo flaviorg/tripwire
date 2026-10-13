@@ -1,0 +1,4 @@
+{
+  "description": "The tripwire hooks module",
+  "modules": ["./register.ts"]
+}

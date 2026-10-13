@@ -1,0 +1,14 @@
+{
+  "name": "tripwire",
+  "owner": { "name": "flaviorg", "url": "https://github.com/flaviorg" },
+  "metadata": { "description": "Tripwire — a Claude Code mod that holds destructive commands and shows what they would destroy." },
+  "plugins": [
+    {
+      "name": "tripwire",
+      "source": "./",
+      "description": "Mod: holds rm -rf, force pushes, hard resets and more; shows the blast list; you cancel or proceed.",
+      "version": "0.1.0",
+      "category": "mod"
+    }
+  ]
+}

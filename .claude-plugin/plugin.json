@@ -1,0 +1,30 @@
+{
+  "name": "tripwire",
+  "version": "0.1.0",
+  "description": "Holds a destructive shell command (rm -rf, force push, hard reset…), shows what it would destroy, and lets you cancel or proceed.",
+  "author": { "name": "flaviorg", "url": "https://github.com/flaviorg" },
+  "repository": "https://github.com/flaviorg/tripwire",
+  "license": "MIT",
+  "keywords": ["mod", "safety", "guard", "bash", "git"],
+  "userConfig": {
+    "mode": {
+      "type": "string",
+      "title": "Mode",
+      "description": "ask: hold the command and ask you. deny: refuse destructive commands without asking. off: do nothing.",
+      "default": "ask",
+      "options": ["ask", "deny", "off"]
+    },
+    "extraPatterns": {
+      "type": "string",
+      "title": "Extra patterns",
+      "description": "Comma-separated regular expressions that also count as destructive, e.g. terraform destroy,kubectl delete",
+      "default": ""
+    },
+    "allowPaths": {
+      "type": "string",
+      "title": "Allowed rm paths",
+      "description": "Comma-separated folder names that rm -rf may delete without a hold, e.g. dist,build,.cache",
+      "default": ""
+    }
+  }
+}
