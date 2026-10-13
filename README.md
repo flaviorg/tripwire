@@ -8,7 +8,7 @@
 [![Tested with](https://img.shields.io/badge/tested_with-Claude_Code_2.1.296-0d0d0f?style=flat-square)](#compatibility)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8a877f?style=flat-square)](LICENSE)
 
-<img src="docs/media/tripwire.gif" alt="Claude tries rm -rf build; tripwire opens a pane listing the 14 files that would be deleted and asks Cancel or Proceed" width="800">
+<img src="docs/media/tripwire.gif" alt="Claude runs rm -rf build; tripwire holds it, opens a pane saying 17 paths · 56K would be deleted with the paths listed, and asks Cancel or Proceed; the user picks Cancel and Claude reports the folder is still there" width="800">
 
 </div>
 
@@ -20,14 +20,16 @@ Tripwire tells you **what it would take with it**, then waits for your answer.
 ╭──────────────────────────────────────────────────────────╮
 │ ◆ tripwire · Recursive delete                            │
 │ rm -rf build                                             │
-│ 14 paths · 2.1M would be deleted                         │
+│ 17 paths · 56K would be deleted                          │
 │   build                                                  │
 │   build/index.html                                       │
-│   build/assets/app.js                                    │
+│   build/chunks                                           │
+│   build/chunks/list.js.map                               │
 │   …                                                      │
-│ Answer in the dialog below · Cancel is the default       │
+│ Answer in Claude's dialog · Cancel is the default        │
 ╰──────────────────────────────────────────────────────────╯
-tripwire · 14 paths · 2.1M would be deleted
+tripwire · 17 paths · 56K would be deleted
+rm -rf build
   1: Cancel   2: Proceed
 ```
 
@@ -112,7 +114,7 @@ denied.
 
 ```bash
 claude plugin validate --strict .   # manifest, hooks and calls
-claude plugin test .                 # 25 tests, no session or sign-in needed
+claude plugin test .                 # 26 tests, no session or sign-in needed
 claude --plugin-dir .                # try it in a session; edits hot-reload
 ```
 
