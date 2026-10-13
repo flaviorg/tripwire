@@ -18,6 +18,4 @@ jobs:
       - name: Validate the plugin
         run: claude plugin validate --strict .
       - name: Run the tests
-        # Until unauthenticated runs are confirmed on CI, a test failure here doesn't block.
-        continue-on-error: true
         run: claude plugin test .
