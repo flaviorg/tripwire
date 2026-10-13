@@ -27,6 +27,12 @@ test('formatPreview counts find output and reads the du size', async () => {
   expect(p.summary[0]).toBe(p.hit)
 })
 
+test('formatPreview reads the macOS du size, which has a leading space', async () => {
+  const { match } = findMatch('rm -rf build')!
+  const p = formatPreview(match, 'rm -rf build', [ok('build\nbuild/a.js\n'), ok(' 56K\tbuild\n')])
+  expect(p.hit).toBe('2 paths · 56K would be deleted')
+})
+
 test('a failed measurement says could not measure', async () => {
   const { match } = findMatch('rm -rf build')!
   expect(formatPreview(match, 'rm -rf build', [null, null]).hit).toBe('could not measure — review the command')

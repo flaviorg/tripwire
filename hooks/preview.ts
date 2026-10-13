@@ -54,7 +54,8 @@ export function formatPreview(match: Match, segmentText: string, results: RunRes
   switch (match.ruleId) {
     case 'rm': {
       const found = rows(results[0])
-      const size = rows(results[1])[0]?.split(/\s+/)[0]
+      // macOS du pads the size with a leading space (' 56K\tbuild'), so trim before splitting.
+      const size = rows(results[1])[0]?.trim().split(/\s+/)[0]
       lines = found
       hit = failed ? 'could not measure — review the command' : `${found.length} path${found.length === 1 ? '' : 's'}${size ? ` · ${size}` : ''} would be deleted`
       break
