@@ -81,11 +81,11 @@ export function register(on: any, options: Options) {
     const decision = await holdAndAsk($, held)
     if (decision === 'proceed') {
       remember(held, 'proceeded', Date.now())
-      $.ui.toast('tripwire: proceeding')
+      $.ui.toast('proceeding')
       return next(e)
     }
     remember(held, 'cancelled', Date.now())
-    $.ui.toast('tripwire: cancelled')
+    $.ui.toast('cancelled · command not run')
     return { deny: DENY_CANCELLED }
   }).catch(async ($: any, e: any, next: any) => {
     if (next.called) return next(e)
@@ -115,7 +115,7 @@ export function register(on: any, options: Options) {
         Text({ color: 'red', bold: true, children: [cut(preview.hit)] }),
         ...preview.lines.map((line) => Text({ dimColor: true, children: [cut('  ' + line)] })),
         Text({ children: [' '] }),
-        Text({ dimColor: true, children: ['Answer in the dialog below · Cancel is the default'] }),
+        Text({ dimColor: true, children: ["Answer in Claude's dialog · Cancel is the default"] }),
       ],
     })
   })

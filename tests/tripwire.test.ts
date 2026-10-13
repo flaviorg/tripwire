@@ -37,13 +37,14 @@ test('rm -rf is held and runs on Proceed', async ($, on) => {
   expect(out).toEqual({ result: 'ran' })
   expect(calls.open).toBe(1)
   expect(calls.close).toBe(1)
-  expect(calls.toasts).toEqual(['tripwire: proceeding'])
+  expect(calls.toasts).toEqual(['proceeding'])
 })
 
 test('rm -rf is denied on Cancel', async ($, on) => {
-  stubs(on, 'Cancel')
+  const calls = stubs(on, 'Cancel')
   const out: any = await $.tool.call({ tool: 'Bash', command: 'git push -f origin main' })
   expect(out.deny).toMatch(/cancelled/)
+  expect(calls.toasts).toEqual(['cancelled · command not run'])
 })
 
 test('a dismissed dialog denies', async ($, on) => {
