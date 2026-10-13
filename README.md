@@ -118,8 +118,8 @@ claude plugin test .                 # 26 tests, no session or sign-in needed
 claude --plugin-dir .                # try it in a session; edits hot-reload
 ```
 
-Design notes live in [`docs/superpowers/plans`](docs/superpowers/plans). Inspired by
-Anthropic's `blast-radius` sample mod; written from scratch against the public mods API.
+Inspired by Anthropic's `blast-radius` sample mod; written from scratch against the public
+mods API.
 
 ## License
 
