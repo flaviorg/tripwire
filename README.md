@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/media/banner.png" alt="tripwire: a Claude Code mod that holds a destructive command and shows what it would destroy before it runs. The pane lists 17 paths of build/ and the dialog offers Cancel or Proceed" width="100%">
+
 # ◆ tripwire
 
 **A Claude Code mod that holds a destructive command and shows you what it would destroy — before it runs.**
@@ -8,7 +10,9 @@
 [![Tested with](https://img.shields.io/badge/tested_with-Claude_Code_2.1.296-0d0d0f?style=flat-square)](#compatibility)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8a877f?style=flat-square)](LICENSE)
 
-<img src="docs/media/tripwire.gif" alt="Claude runs rm -rf build; tripwire holds it, opens a pane saying 17 paths · 56K would be deleted with the paths listed, and asks Cancel or Proceed; the user picks Cancel and Claude reports the folder is still there" width="800">
+<img src="docs/media/demo.gif" alt="Claude runs rm -rf build; tripwire opens its pane listing 17 paths · 56K that would be deleted and asks Cancel or Proceed; the user cancels. Claude then force-pushes a branch; tripwire shows the 2 remote commits that would be overwritten and the user proceeds. /tripwire lists both decisions" width="880">
+
+<sub>An animation drawn from the mod's own pane and dialog. A recording from a real session is <a href="#in-a-real-session">below</a>.</sub>
 
 </div>
 
@@ -32,6 +36,10 @@ tripwire · 17 paths · 56K would be deleted
 rm -rf build
   1: Cancel   2: Proceed
 ```
+
+## In a real session
+
+<img src="docs/media/tripwire.gif" alt="Claude runs rm -rf build; tripwire holds it, opens a pane saying 17 paths · 56K would be deleted with the paths listed, and asks Cancel or Proceed; the user picks Cancel and Claude reports the folder is still there" width="800">
 
 ## Install
 
